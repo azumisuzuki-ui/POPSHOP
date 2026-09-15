@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=M+PLUS+Rounded+1c:wght@700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'M PLUS Rounded 1c', 'Fredoka', sans-serif;
+    background-color: #fffde7;
+    background-image: 
+        radial-gradient(#ffd54f 20%, transparent 20%),
+        radial-gradient(#ff80ab 20%, transparent 20%);
+    background-size: 36px 36px;
+    background-position: 0 0, 18px 18px;
+    color: #2c2c2c;
+    margin: 0;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+#game-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 440px;
+    padding: 16px;
+    border: 4px solid #2c2c2c;
+    border-radius: 24px;
+    box-shadow: 6px 6px 0px #ff4081;
+    position: relative;
+}
+
+header {
+    background-color: #80deea;
+    border-radius: 16px;
+    padding: 10px;
+    border: 3px solid #2c2c2c;
+    text-align: center;
+    box-shadow: 3px 3px 0px #2c2c2c;
+    margin-bottom: 15px;
+}
+
+h1 {
+    margin: 0;
+    color: #ff4081;
+    font-size: 24px;
+    font-family: 'Fredoka', sans-serif;
+    text-shadow: 2px 2px 0px #ffffff;
+}
+
+.status {
+    font-weight: bold;
+    margin-top: 4px;
+    background: #ffffff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    color: #2c2c2c;
+    display: inline-block;
+    border: 2px solid #2c2c2c;
+    font-size: 13px;
+}
+
+.header-btns {
+    margin-top: 6px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-small {
+    background-color: #ffffff;
+    color: #2c2c2c;
+    border: 2px solid #2c2c2c;
+    border-radius: 12px;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px #2c2c2c;
+}
+
+/* ★ タイトル画面専用デザイン ★ */
+.title-card {
+    background-color: #fff9fa;
+    border: 3px solid #2c2c2c;
+    border-radius: 16px;
+    padding: 20px 15px;
+    text-align: center;
+    box-shadow: 4px 4px 0px #80deea;
+    margin-bottom: 15px;
+}
+
+.truck-illustration {
+    font-size: 48px;
+    margin-bottom: 5px;
+}
+
+.main-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 34px;
+    color: #ff4081;
+    margin: 0;
+    text-shadow: 3px 3px 0px #ffd54f;
+}
+
+.subtitle {
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
+    margin: 4px 0 15px 0;
+}
+
+.rule-box {
+    background-color: #ffffff;
+    border: 2px solid #2c2c2c;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: left;
+    font-size: 12px;
+}
+
+.rule-box h3 {
+    margin: 0 0 6px 0;
+    font-size: 13px;
+    color: #ff4081;
+    text-align: center;
+}
+
+.rule-box ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+}
+
+.rule-box li {
+    margin-bottom: 4px;
+}
+
+.btn-start {
+    font-size: 20px;
+    padding: 16px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.screen h2 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #2c2c2c;
+}
+
+.info-card, .setting-group, .result-card, .voice-card {
+    background-color: #fff9fa;
+    border: 3px solid #2c2c2c;
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0px #ff4081;
+}
+
+.info-card p, .result-card p {
+    margin: 6px 0;
+    font-size: 13px;
+}
+
+.setting-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #ff4081;
+    font-size: 14px;
+}
+
+select, input[type="range"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid #2c2c2c;
+    font-size: 13px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    font-weight: bold;
+    outline: none;
+}
+
+.btn-pop {
+    background-color: #ff4081;
+    color: white;
+    border: 3px solid #2c2c2c;
+    border-radius: 20px;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px #ffd54f;
+    transition: 0.1s;
+    text-shadow: 1px 1px 0px #2c2c2c;
+}
+
+.btn-pop:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #ffd54f;
+}
+
+.shop-header {
+    background-color: #ffd54f;
+    color: #2c2c2c;
+    padding: 6px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border: 2px solid #2c2c2c;
+    font-size: 12px;
+}
+
+.shop-view {
+    display: flex;
+    height: 200px;
+    border: 3px solid #2c2c2c;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0px #80deea;
+}
+
+.outside {
+    flex: 1;
+    background: repeating-linear-gradient(0deg, #e0f7fa, #e0f7fa 15px, #ffffff 15px, #ffffff 30px);
+    padding: 8px;
+    position: relative;
+    border-right: 3px solid #2c2c2c;
+}
+
+.inside {
+    flex: 1;
+    background: repeating-linear-gradient(0deg, #fff3e0, #fff3e0 15px, #ffffff 15px, #ffffff 30px);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pop-sign {
+    background-color: #ff4081;
+    color: white;
+    padding: 4px;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    border: 2px solid #2c2c2c;
+    border-radius: 6px;
+    transform: rotate(-3deg);
+    margin-bottom: 8px;
+}
+
+.customer-area {
+    background-color: #ffffff;
+    padding: 6px;
+    border-radius: 8px;
+    font-size: 11px;
+    border: 2px solid #2c2c2c;
+}
+
+.ice-case {
+    background-color: #ffffff;
+    border: 2px solid #2c2c2c;
+    padding: 6px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.coin-effect {
+    position: absolute;
+    top: 30%;
+    right: 15px;
+    color: #ff4081;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Fredoka', sans-serif;
+    text-shadow: 2px 2px 0 #ffd54f;
+    animation: popUp 0.8s ease-out forwards;
+}
+
+.highlight {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ff4081;
+    background-color: #fff8e1;
+    padding: 6px;
+    border-radius: 8px;
+    border: 2px solid #2c2c2c;
+}

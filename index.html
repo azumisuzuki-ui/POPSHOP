@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POP SHOP - Master Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1>🍦 POP SHOP 🍒</h1>
+            <div class="status">
+                💰 所持金: <span id="money">10000</span>円 | 📅 <span id="day">1</span>日目
+            </div>
+            <div class="header-btns">
+                <button id="btn-bgm" class="btn-small">🎵 BGM: OFF</button>
+                <button id="btn-fullscreen" class="btn-small">🖥️ 全画面</button>
+            </div>
+        </header>
+
+        <!-- ▼ 画面0：タイトル画面 ▼ -->
+        <main id="screen-title" class="screen">
+            <div class="title-card">
+                <div class="truck-illustration">🚚🍦✨</div>
+                <h2 class="main-title">POP SHOP</h2>
+                <p class="subtitle">〜キッチンカー経営シミュレーション〜</p>
+                
+                <div class="rule-box">
+                    <h3>🏆 目標・勝利条件</h3>
+                    <p>7日間でマーケットを読み解き、所持金を増やそう！</p>
+                    <ul>
+                        <li>🌟 <strong>スーパー店長:</strong> 50,000円以上</li>
+                        <li>🍦 <strong>一人前店長:</strong> 25,000円以上</li>
+                        <li>😭 <strong>だめだめ店長:</strong> 25,000円未満</li>
+                    </ul>
+                </div>
+            </div>
+            <button id="btn-start-game" class="btn-pop btn-start">▶ GAME START</button>
+        </main>
+
+        <!-- ▼ 画面1：市場調査 ▼ -->
+        <main id="screen-market" class="screen" style="display: none;">
+            <h2>🔍【市場調査】 今日の街の様子</h2>
+            <div class="info-card">
+                <p id="info-weather">☀️ <strong>天気:</strong> 快晴</p>
+                <p id="info-event">🏫 <strong>イベント:</strong> 体育祭</p>
+                <p id="info-trend">📺 <strong>トレンド:</strong> チョコミント</p>
+            </div>
+            <button id="btn-to-strategy" class="btn-pop">📝 戦略会議へ進む</button>
+        </main>
+
+        <!-- ▼ 画面2：戦略会議 ▼ -->
+        <main id="screen-strategy" class="screen" style="display: none;">
+            <h2>📝【戦略会議】 出店準備</h2>
+            <div class="setting-group">
+                <label>🍦 Product (商品フレーバー)</label>
+                <select id="select-product">
+                    <option value="soda">ソーダアイス (原価50円)</option>
+                    <option value="vanilla">定番バニラ (原価100円)</option>
+                    <option value="mint">チョコミント (原価150円)</option>
+                    <option value="mango">贅沢マンゴー (原価200円)</option>
+                    <option value="strawberry">高級いちご (原価300円)</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <label>📦 Stock (仕入れ数量)</label>
+                <select id="select-stock">
+                    <option value="30">30個 (控えめ仕入れ)</option>
+                    <option value="50" selected>50個 (標準仕入れ)</option>
+                    <option value="80">80個 (勝負仕入れ！)</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <label>📍 Place (出店場所と出店料)</label>
+                <select id="select-place">
+                    <option value="park">🌳 公園 (出店料: 0円 / 家族連れ多)</option>
+                    <option value="school">🏫 学校前 (出店料: 1,500円 / 学生多)</option>
+                    <option value="office">🏢 オフィス街 (出店料: 3,000円 / 社会人多)</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <label>💰 Price (販売価格: <span id="price-display">250</span>円)</label>
+                <input type="range" id="input-price" min="80" max="800" step="10" value="250">
+            </div>
+            <div class="setting-group">
+                <label>✨ Promotion (POPデザイン)</label>
+                <select id="select-pop">
+                    <option value="summer">「猛暑にはコレ！」</option>
+                    <option value="student">「学生応援！学割中」</option>
+                    <option value="reward">「頑張るあなたへご褒美」</option>
+                    <option value="sns">「SNS映え！バズりスイーツ」</option>
+                    <option value="family">「ファミリー大満足セット」</option>
+                </select>
+            </div>
+            <button id="btn-to-shop" class="btn-pop">🚀 営業開始！</button>
+        </main>
+
+        <!-- ▼ 画面3：営業開始 ▼ -->
+        <main id="screen-shop" class="screen" style="display: none; position: relative;">
+            <div id="effect-layer"></div>
+            <div class="shop-header">
+                🕒 時間: <span id="clock">10:00</span> | 📦 在庫: <span id="stock">50</span>個 | 💰 売上: <span id="sales">0</span>円
+            </div>
+            <div class="shop-view">
+                <div class="outside">
+                    <div class="sky" id="display-sky">☀️</div>
+                    <div class="pop-sign" id="display-pop">POPのキャッチコピー</div>
+                    <div class="customer-area" id="customer-message">
+                        🚶 お客さんを待っています...
+                    </div>
+                </div>
+                <div class="inside">
+                    <div class="clerk">🧑‍🍳 店長</div>
+                    <div class="ice-case">
+                        🍦 <span id="display-product">商品名</span><br>
+                        <span id="display-price">250</span>円
+                    </div>
+                    <div class="register">📠 レジ</div>
+                </div>
+            </div>
+            <button id="btn-to-result" class="btn-pop" style="display: none;">📊 営業終了（分析画面へ）</button>
+        </main>
+
+        <!-- ▼ 画面4：分析と改善 ▼ -->
+        <main id="screen-result" class="screen" style="display: none;">
+            <h2>📊【分析と改善】 今日の成果</h2>
+            <div class="result-card">
+                <h3>📈 収支レポート</h3>
+                <p>売上高: <span id="result-sales">0</span>円</p>
+                <p>仕入費: -<span id="result-cost">0</span>円</p>
+                <p>出店料: -<span id="result-place-cost">0</span>円</p>
+                <p>売れ残り廃棄: <span id="result-waste-count">0</span>個 (-<span id="result-waste-cost">0</span>円分)</p>
+                <hr>
+                <p class="highlight">💰 今日の純利益: <span id="result-profit">0</span>円</p>
+                <p class="highlight">✨ 投資効率 (ROI): <span id="result-roi">0</span>%</p>
+            </div>
+            <div class="voice-card">
+                <h3>💬 お客さんの声</h3>
+                <div id="customer-reviews">
+                    <p id="review-1">💬 レビュー1</p>
+                    <p id="review-2">💬 レビュー2</p>
+                </div>
+            </div>
+            <button id="btn-next-day" class="btn-pop">🌙 次の日へ進む</button>
+        </main>
+
+        <!-- ▼ 画面5：最終結果 ▼ -->
+        <main id="screen-ending" class="screen" style="display: none;">
+            <h2>🏆 7日間の経営評価</h2>
+            <div class="result-card" style="text-align: center;">
+                <h3 id="ending-rank-title" style="font-size: 20px; color: #ff4081;">店長ランク</h3>
+                <p id="ending-message" style="font-size: 15px; font-weight: bold; margin: 15px 0;"></p>
+                <div class="highlight" style="font-size: 18px;">
+                    最終所持金: <span id="ending-final-money">0</span>円
+                </div>
+            </div>
+            <button id="btn-retry" class="btn-pop">🔄 タイトルへ戻る</button>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
