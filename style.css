@@ -314,3 +314,19 @@ select, input[type="range"] {
     display: block;
     margin: 0 auto;
 }
+/* タイトルロゴ画像のレスポンシブ強制修正 */
+.title-logo-wrapper {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    overflow: hidden; /* 画面外へのはみ出しを防止 */
+}
+
+.title-logo-img {
+    width: 100% !important;     /* 親要素の幅いっぱいに収める */
+    max-width: 280px !important;/* スマホで見やすい最大幅に固定 */
+    height: auto !important;    /* 縦横比を維持 */
+    display: block !important;
+    margin: 0 auto !important;
+}
